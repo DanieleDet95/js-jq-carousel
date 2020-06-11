@@ -11,7 +11,7 @@ $(document).ready(
 
     // Al click di uno dei quattro pallini cambiare l'immagine
     // in base alla posizione
-    $('.nav i').click(imageIndice)
+    $('.nav i').click(imageIndice);
   }
 );
 
@@ -60,33 +60,46 @@ function imagePrev(){
 
 function imageIndice(){
   // Assegnamo alla variabile il pallino cliccato
-  var indice = $(this);
+  var indice = $('.nav i').index(this);
 
   // Resettiamo l'immagine e gli indici selezionati in precedenza
   var immagine = $('.images .active').removeClass('active').hide();
-  var indiceUno = $('.nav i.first').removeClass('active');
-  var indiceDue = $('.nav i.second').removeClass('active');
-  var indiceTre = $('.nav i.third').removeClass('active');
-  var indiceQuattro = $('.nav i.last').removeClass('active');
+  var pallino = $('.nav i.active').removeClass('active');
 
-
-  if(indice.hasClass('first')){
-    // Se il pallino cliccato é il primo
-    immagine = $('.images .first').fadeIn(1500).addClass('active');
-    indice = $(this).addClass('active');
-  }else if(indice.hasClass('second')){
-    // Se il pallino cliccato é il secondo
-    immagine = $('.images .second').fadeIn(1500).addClass('active');
-    indice = $(this).addClass('active');
-  }
-  else if(indice.hasClass('third')){
-    // Se il pallino cliccato é il terzo
-    immagine = $('.images .third').fadeIn(1500).addClass('active');
-    indice = $(this).addClass('active');
-  }
-  else if(indice.hasClass('last')){
-    // Se il pallino cliccato é il quarto
-    immagine = $('.images .last').fadeIn(1500).addClass('active');
-    indice = $(this).addClass('active');
-  }
+  // Visualizziamo l'immagine selezionata e il pallino blu
+  $('.images img').eq(indice).fadeIn(1500).addClass('active');
+  $('.nav i').eq(indice).addClass('active');
 }
+
+// function imageIndice(){
+//   // Assegnamo alla variabile il pallino cliccato
+//   var indice = $(this);
+//
+//   // Resettiamo l'immagine e gli indici selezionati in precedenza
+//   var immagine = $('.images .active').removeClass('active').hide();
+//   var indiceUno = $('.nav i.first').removeClass('active');
+//   var indiceDue = $('.nav i.second').removeClass('active');
+//   var indiceTre = $('.nav i.third').removeClass('active');
+//   var indiceQuattro = $('.nav i.last').removeClass('active');
+//
+//
+//   if(indice.hasClass('first')){
+//     // Se il pallino cliccato é il primo
+//     immagine = $('.images .first').fadeIn(1500).addClass('active');
+//     indice = $(this).addClass('active');
+//   }else if(indice.hasClass('second')){
+//     // Se il pallino cliccato é il secondo
+//     immagine = $('.images .second').fadeIn(1500).addClass('active');
+//     indice = $(this).addClass('active');
+//   }
+//   else if(indice.hasClass('third')){
+//     // Se il pallino cliccato é il terzo
+//     immagine = $('.images .third').fadeIn(1500).addClass('active');
+//     indice = $(this).addClass('active');
+//   }
+//   else if(indice.hasClass('last')){
+//     // Se il pallino cliccato é il quarto
+//     immagine = $('.images .last').fadeIn(1500).addClass('active');
+//     indice = $(this).addClass('active');
+//   }
+// }
